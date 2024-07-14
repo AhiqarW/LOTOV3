@@ -1,0 +1,64 @@
+{
+  "version": "1.0",
+  "defaultProvider": "unpkg",
+  "libraries": [
+    {
+      "library": "@microsoft/signalr@8.0.0",
+      "destination": "wwwroot/js/signalr/",
+      "files": [
+        "dist/browser/signalr.js",
+        "dist/browser/signalr.js.map",
+        "dist/browser/signalr.min.js"
+      ]
+    },
+    {
+      "library": "@microsoft/signalr-protocol-msgpack@8.0.7",
+      "destination": "wwwroot/js/signalr-protocol-msgpack/",
+      "files": [
+        "dist/browser/signalr-protocol-msgpack.js",
+        "dist/browser/signalr-protocol-msgpack.js.map",
+        "dist/browser/signalr-protocol-msgpack.min.js",
+        "dist/browser/signalr-protocol-msgpack.min.js.map",
+        "dist/cjs/BinaryMessageFormat.js",
+        "dist/cjs/BinaryMessageFormat.js.map",
+        "dist/cjs/browser-index.js",
+        "dist/cjs/browser-index.js.map",
+        "dist/cjs/index.js",
+        "dist/cjs/index.js.map",
+        "dist/cjs/MessagePackHubProtocol.js",
+        "dist/cjs/MessagePackHubProtocol.js.map",
+        "dist/cjs/MessagePackOptions.js",
+        "dist/cjs/MessagePackOptions.js.map",
+        "dist/cjs/Utils.js",
+        "dist/cjs/Utils.js.map",
+        "dist/esm/BinaryMessageFormat.d.ts",
+        "dist/esm/BinaryMessageFormat.js",
+        "dist/esm/BinaryMessageFormat.js.map",
+        "dist/esm/browser-index.d.ts",
+        "dist/esm/browser-index.js",
+        "dist/esm/browser-index.js.map",
+        "dist/esm/index.d.ts",
+        "dist/esm/index.js",
+        "dist/esm/index.js.map",
+        "dist/esm/MessagePackHubProtocol.d.ts",
+        "dist/esm/MessagePackHubProtocol.js",
+        "dist/esm/MessagePackHubProtocol.js.map",
+        "dist/esm/MessagePackOptions.d.ts",
+        "dist/esm/MessagePackOptions.js",
+        "dist/esm/MessagePackOptions.js.map",
+        "dist/esm/Utils.d.ts",
+        "dist/esm/Utils.js",
+        "dist/esm/Utils.js.map",
+        "src/BinaryMessageFormat.ts",
+        "src/browser-index.ts",
+        "src/index.ts",
+        "src/MessagePackHubProtocol.ts",
+        "src/MessagePackOptions.ts",
+        "src/third-party-notices.txt",
+        "src/Utils.ts",
+        "package.json",
+        "README.md"
+      ]
+    }
+  ]
+}
