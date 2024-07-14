@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.SignalR;
 namespace LOTOV3.Hubs
 {
     public class LotoHub: Hub
-    {
+    { 
 
         public async Task SignalerDonnee(NouvelleDonnee donnee)
         {
