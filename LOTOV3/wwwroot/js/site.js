@@ -12,7 +12,7 @@
 
     connection.on("NouvelleDonneeRecue", ({ DonneeAjoutee }) => {
 
-        alert("Voici la donnee ajoutee : " + DonneeAjoutee)
+        document.getElementById('commentaire').value = DonneeAjoutee;
     });
 
     connection.start().then(function () {
@@ -26,7 +26,10 @@
 
 const connection = initialiserConnectionSignalR();
 
-const soumettreCommentaire = (commentaire) => {
+const soumettreCommentaire = () => {
+
+    const commentaire = document.getElementById('commentaire').value;
+
 
     //Faire un POST ici?
 

@@ -6,7 +6,13 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
-    <button class="btn btn-primary" type="button" onclick="soumettreCommentaire('allo')">Test</button>
+    <textarea id="commentaire" rows="4" cols="50" oninput="soumettreCommentaire()"></textarea>
+
+    <!--The oninput event is similar to the onchange event.
+    The difference is that the oninput event occurs immediately 
+    after the content has been changed, while onchange occurs when the element loses focus. -->
+
+    <!--<button class="btn btn-primary" type="button" onclick="soumettreCommentaire('allo')">Test</button>-->
 </div>
 
 @section scripts {
