@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Loto";
+}
+
+<div class="table-responsive">
+    <table class="table table-primary align-middle table-sm table-bordered border-primary" style="font-size:x-small">
+        <tbody>
+            <tr>
+                <td style="text-align:right"># Fiche :</td>
+                <td><b>@Model.NoFicheCadenassageUtilisation</b></td>
+            </tr>
+            <tr>
+                <td style="text-align:right">Création :</td>
+                <td><b>@string.Format("{0:yyyy-MM-dd HH:mm}", Model.DateCreation)</b></td>
+            </tr>
+            <tr>
+                <td style="text-align:right">Modification :</td>
+                <td><b>@string.Format("{0:yyyy-MM-dd HH:mm}", Model.DateModification)</b></td>
+            </tr>
+            <tr>
+                <td style="text-align:right">Utilisation actuelle :</td>
+                <td>
+                    <b>
+                        @string.Format("{0:yyyy-MM-dd HH:mm}", @Model.DateUtilisation)
+                    </b>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
