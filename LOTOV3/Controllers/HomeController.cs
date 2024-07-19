@@ -34,7 +34,28 @@ namespace LOTOV3.Controllers
             infos.DateModification = DateTime.Now;
             infos.DateUtilisation = DateTime.Now;
 
-            return View(infos);
+            var descriptionGenerale = MockDataService.DescriptionGenerale();
+            var accessoires = MockDataService.Accessoires();
+            var preparationsEtapeControle = MockDataService.PreparationEtapeControle();
+            var etapeMaitrise = MockDataService.EtapeMaitrise();
+            var etapeMaitriseAccessoire = MockDataService.EtapeMaitriseAccessoire();
+            var etapeMaitrisePhoto = MockDataService.EtapeMaitrisePhoto();
+            var participant = MockDataService.Participant();
+
+            var model = new LotoViewModel
+            {
+                DescriptionGenerale = descriptionGenerale,
+                Accessoires = accessoires,
+                PreparationsEtapeControle = preparationsEtapeControle,
+                EtapeMaitrise = etapeMaitrise,
+                EtapeMaitriseAccessoire = etapeMaitriseAccessoire,
+                EtapeMaitrisePhoto = etapeMaitrisePhoto,
+                Participant = participant
+            };
+
+
+
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

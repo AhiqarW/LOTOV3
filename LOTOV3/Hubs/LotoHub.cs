@@ -8,7 +8,9 @@ namespace LOTOV3.Hubs
 
         public async Task SignalerDonnee(NouvelleDonnee donnee)
         {
-            
+
+            Console.WriteLine($"data: {donnee.DonneeAjoutee}");
+
             await Clients.All.SendAsync("NouvelleDonneeRecue", donnee);
 
         }

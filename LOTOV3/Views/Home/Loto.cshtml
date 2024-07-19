@@ -8,24 +8,119 @@
         <tbody>
             <tr>
                 <td style="text-align:right"># Fiche :</td>
-                <td><b>@Model.NoFicheCadenassageUtilisation</b></td>
+                <td><b>@Model.DescriptionGenerale.NoFicheCadenassageUtilisation</b></td>
             </tr>
+
             <tr>
                 <td style="text-align:right">Création :</td>
-                <td><b>@string.Format("{0:yyyy-MM-dd HH:mm}", Model.DateCreation)</b></td>
+                <td><b>@string.Format("{0:yyyy-MM-dd HH:mm}", @Model.DescriptionGenerale.DateCreation)</b></td>
             </tr>
+
             <tr>
                 <td style="text-align:right">Modification :</td>
-                <td><b>@string.Format("{0:yyyy-MM-dd HH:mm}", Model.DateModification)</b></td>
+                <td><b>@string.Format("{0:yyyy-MM-dd HH:mm}", @Model.DescriptionGenerale.DateModification)</b></td>
             </tr>
             <tr>
                 <td style="text-align:right">Utilisation actuelle :</td>
                 <td>
                     <b>
-                        @string.Format("{0:yyyy-MM-dd HH:mm}", @Model.DateUtilisation)
+                        @string.Format("{0:yyyy-MM-dd HH:mm}", @Model.DescriptionGenerale.DateUtilisation)
                     </b>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
+
+<h1 style="background-color:darkblue;color:white;padding: 3px 3px 3px 5px; text-align:left;">
+    <img src="../images/lockouttagout.png" alt="" style="vertical-align: middle;width:50px">
+    &nbsp;
+    <span style="vertical-align:middle">
+        CADENASSAGE
+    </span>
+</h1>
+
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <h3>1 | Description générale</h3>
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <div class="col-12 row">
+                    <div class="card">
+                        <h5 class="card-header">@Model.DescriptionGenerale.NoFicheCadenassageInterne</h5>
+                        <div class="card-body">
+                            <h5 class="card-title">@Model.DescriptionGenerale.NomEquipement</h5>
+                            <div class="card-text">
+                                <img src="@Model.DescriptionGenerale.Photo" class="img-fluid img-thumbnail" alt="@Model.DescriptionGenerale.NomEquipement">
+                                <div class="form-group">
+                                    <label class="label-etiquette" for="NoEquipement"># Équipement</label>
+                                    <label class="form-control label-bgcolor-gray" id="NoEquipement" aria-describedby="NoEquipement">@Model.DescriptionGenerale.NoEquipement</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="label-etiquette" for="Departement">Département</label>
+                                    @if (@Model.DescriptionGenerale.NoDepartement == null)
+                                    {
+                                        <label class="form-control label-bgcolor-gray" id="NoDepartement" aria-describedby="NoDepartement">Aucun</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="form-control label-bgcolor-gray" id="NoDepartement" aria-describedby="NoDepartement">@Model.DescriptionGenerale.DescriptionDepartementFr</label>
+                                    }
+                                </div>
+                                <div class="form-group">
+                                    <label class="label-etiquette" for="NoEmplacementEquipement">Emplacement</label>
+                                    @if (@Model.DescriptionGenerale.NoEmplacementEquipement == null)
+                                    {
+                                        <label class="form-control label-bgcolor-gray" id="NoEmplacementEquipement" aria-describedby="NoEmplacementEquipement">@Model.DescriptionGenerale.EmplacementEquipementAutreSpecifierFr</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="form-control label-bgcolor-gray" id="NoEmplacementEquipement" aria-describedby="NoEmplacementEquipement">@Model.DescriptionGenerale.DescriptionEmplacementEquipementFr</label>
+                                    }
+                                </div>
+                                <div class="form-group">
+                                    <label class="label-etiquette" for="Localisation">Localisation</label>
+                                    @if (@Model.DescriptionGenerale.NoLocalisation == null)
+                                    {
+                                        <label class="form-control label-bgcolor-gray" id="NoLocalisation" aria-describedby="NoLocalisation">@Model.DescriptionGenerale.LocalisationAutreSpecifierFr</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="form-control label-bgcolor-gray" id="NoLocalisation" aria-describedby="NoLocalisation">@Model.DescriptionGenerale.DescriptionLocalisationFr</label>
+                                    }
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                   
+                                    <label class="label-zone-commentaires" for="UsagerDescriptionGeneraleRemarques">Au BESOIN, cliquer ici pour indiquer une remarque.</label>
+                                    <!-- <textarea type="text" class="form-control form-control-zone-a-remplir" id="UsagerDescriptionGeneraleRemarques" bind="@Model.DescriptionGenerale.UsagerDescriptionGeneraleRemarques" onblur="UsagerDescriptionGeneraleRemarques"></textarea> -->
+                                    
+                                    <textarea id="commentaire" class="form-control form-control-zone-a-remplir" id="UsagerDescriptionGeneraleRemarques" onchange="soumettreCommentaire()"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- <textarea id="commentaire" rows="4" cols="50" onchange="soumettreCommentaire()"></textarea> -->
+
+@section scripts {
+    <script src="~/js/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/js/signalr-protocol-msgpack/dist/browser/signalr-protocol-msgpack.min.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @* Include every Bootstrap JavaScript plugin and dependency with one of our two bundles.
+    Both bootstrap.bundle.js and bootstrap.bundle.min.js include Popper for our tooltips and popovers.*@
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+}
