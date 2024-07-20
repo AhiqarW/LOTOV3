@@ -28,11 +28,6 @@ namespace LOTOV3.Controllers
 
         public IActionResult Loto()
         {
-            DescriptionGenerale infos = new DescriptionGenerale();
-
-            infos.DateCreation = DateTime.Now;
-            infos.DateModification = DateTime.Now;
-            infos.DateUtilisation = DateTime.Now;
 
             var descriptionGenerale = MockDataService.DescriptionGenerale();
             var accessoires = MockDataService.Accessoires();
@@ -64,30 +59,5 @@ namespace LOTOV3.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        private DescriptionGenerale? DescriptionGenerale = default;
-        private List<Accessoire>? Accessoires = default;
-        private List<PreparationEtapeControle> PreparationsEtapeControle = default;
-        private List<EtapeMaitrise>? EtapeMaitrise = default;
-        private List<EtapeMaitriseAccessoire>? EtapeMaitriseAccessoire = default;
-        private List<EtapeMaitrisePhoto>? EtapeMaitrisePhoto = default;
-        private List<Participant>? Participant = default;
-
-        public override void OnActionExecuting(ActionExecutingContext context)
-        {
-            base.OnActionExecuting(context);
-
-            DescriptionGenerale = MockDataService.DescriptionGenerale();
-            Accessoires = MockDataService.Accessoires();
-            PreparationsEtapeControle = MockDataService.PreparationEtapeControle();
-            EtapeMaitrise = MockDataService.EtapeMaitrise();
-            EtapeMaitriseAccessoire = MockDataService.EtapeMaitriseAccessoire();
-            EtapeMaitrisePhoto = MockDataService.EtapeMaitrisePhoto();
-            Participant = MockDataService.Participant();
-        }
-
-        private void UsagerDescriptionGeneraleRemarques()
-        {
-            Console.WriteLine(DescriptionGenerale.UsagerDescriptionGeneraleRemarques);
-        }
     }
 }
