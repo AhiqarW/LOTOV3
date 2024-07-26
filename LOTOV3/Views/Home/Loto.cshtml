@@ -1,4 +1,6 @@
-﻿
+﻿@model LOTOV3.Models.LotoViewModel
+
+
 @{
     ViewData["Title"] = "Loto";
 }
@@ -141,6 +143,31 @@
         </div>
     </div>
 
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <h3>3 | Préparation cadenassage</h3>
+            </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <div class="row">
+                    <ul class="list-group list-group-numbered">
+                        @foreach (var item in @Model.PreparationsEtapeControle.Where(c => c.CategoriePreparationEtapeControle == 1).OrderBy(c => c.DescriptionPreparationEtapeControleFr))
+                        {
+                            <li class="list-group-item d-flex preparation-phrase-bgcolor-gray">
+                                &nbsp;&nbsp;&nbsp;
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="@item.PreparationEtapeControleId-Input" value="@item.FaitPreparationEtapeControle" checked="@item.FaitPreparationEtapeControle">
+                                    <label class="form-check-label" for="@item.PreparationEtapeControleId-Input">@item.DescriptionPreparationEtapeControleFr</label>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
