@@ -110,6 +110,37 @@
         </div>
     </div>
 
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <h3>2 | Sommaire des accessoires</h3>
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <div class="row">
+                    @foreach (var item in @Model.Accessoires)
+                    {
+                        <div class="col-xs-1 col-sm-6 col-md-4 col-lg-4 col-xl-2 col-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">@item.DescriptionAccessoireFr</h5>
+                                    <div class="card-text text-center">
+                                        <img src="@item.PhotoAccessoire" style="height:50px;max-width:50px" />
+
+                                    </div>
+                                    <div class="card-footer text-center" style="font-size:large">
+                                        X&nbsp;@item.Quantite
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 
