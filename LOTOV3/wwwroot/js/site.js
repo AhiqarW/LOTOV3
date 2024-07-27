@@ -15,6 +15,14 @@
         document.getElementById('commentaire').value = DonneeAjoutee;
     });
 
+    connection.on("UpdateCheckboxState", ({ Id, State }) => {
+        const checkbox = document.getElementById(Id);
+
+        checkbox.checked = State;
+    
+    });
+
+
     connection.start().then(function () {
         console.log('Connected!');
     }).catch(function (err) {
@@ -41,4 +49,17 @@ const soumettreCommentaire = () => {
             DonneeAjoutee: commentaire
         }).catch(e => console.log(e.message));
     
+}
+
+const soumettreEtatCheckbox = (id, state) => {
+
+
+    if (!connection.state === "Connected") {
+        location.reload
+    }
+
+    connection.invoke("UpdateCheckboxState",
+        {
+            Id: id, State: state
+        }).catch(e => console.log(e.message));
 }

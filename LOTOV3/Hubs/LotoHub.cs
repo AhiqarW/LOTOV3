@@ -14,5 +14,12 @@ namespace LOTOV3.Hubs
             await Clients.All.SendAsync("NouvelleDonneeRecue", donnee);
 
         }
+
+        public async Task UpdateCheckboxState(CheckboxStateUpdate update)
+        {
+            Console.WriteLine($"Checkbox updated: {update.Id}, State: {update.State}");
+            await Clients.All.SendAsync("UpdateCheckboxState", update);
+        }
     }
 }
+
