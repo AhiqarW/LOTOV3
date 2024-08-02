@@ -8,7 +8,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOTOV3", "LOTOV3\LOTOV3.csp
 		{86CE1A3E-6956-405A-ADD6-3CB51994A437} = {86CE1A3E-6956-405A-ADD6-3CB51994A437}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FichesLoto.Shared", "FichesLoto.Shared\FichesLoto.Shared.csproj", "{86CE1A3E-6956-405A-ADD6-3CB51994A437}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FichesLoto.Shared", "FichesLoto.Shared\FichesLoto.Shared.csproj", "{86CE1A3E-6956-405A-ADD6-3CB51994A437}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaBD", "SchemaBD\SchemaBD.csproj", "{00A3C6F8-A687-4C4D-9591-68E60A62CF09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +26,10 @@ Global
 		{86CE1A3E-6956-405A-ADD6-3CB51994A437}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86CE1A3E-6956-405A-ADD6-3CB51994A437}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86CE1A3E-6956-405A-ADD6-3CB51994A437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00A3C6F8-A687-4C4D-9591-68E60A62CF09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00A3C6F8-A687-4C4D-9591-68E60A62CF09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00A3C6F8-A687-4C4D-9591-68E60A62CF09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00A3C6F8-A687-4C4D-9591-68E60A62CF09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

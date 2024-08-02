@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FichesLoto.Shared\FichesLoto.Shared.csproj" />
+    <ProjectReference Include="..\SchemaBD\SchemaBD.csproj" />
   </ItemGroup>
 
 </Project>

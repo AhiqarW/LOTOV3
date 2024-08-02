@@ -279,7 +279,7 @@ public class MockDataService
             PreparationEtapeControleId = Guid.NewGuid(),
             SocieteId = _societeId,
             DescriptionPreparationEtapeControleFr = "Arrêter l'équipement selon la méthode appropriée.",
-            FaitPreparationEtapeControle = false,
+            FaitPreparationEtapeControle = true,
             CategoriePreparationEtapeControle = 1, // 1 = Cadenassage, 2 = Décadenassage
             DateHeure = null
         });
