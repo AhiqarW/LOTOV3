@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace FichesLoto.Shared.Domain
 {
     public class DescriptionGenerale
-    {       
+    {
+        [Key]
         public Guid  NoFicheCadenassage { get; set; }
 
         public Guid NoFicheCadenassageUtilisation { get; set; }
