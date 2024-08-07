@@ -34,7 +34,7 @@
 
 const connection = initialiserConnectionSignalR();
 
-const soumettreCommentaire = () => {
+/*const soumettreCommentaire = () => {
 
     const commentaire = document.getElementById('commentaire').value;
 
@@ -49,7 +49,32 @@ const soumettreCommentaire = () => {
             DonneeAjoutee: commentaire
         }).catch(e => console.log(e.message));
     
-}
+}*/
+
+const soumettreCommentaire = () => {
+    const commentaire = document.getElementById('commentaire').value;
+
+    if (connection.state !== "Connected") {
+        location.reload();
+    }
+
+    fetch('/home/updatecomment', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ comment: commentaire })
+    }).then(response => {
+        if (response.ok) {
+          
+            connection.invoke("SignalerDonnee", {
+                DonneeAjoutee: commentaire
+            }).catch(e => console.log(e.message));
+        }
+    }).catch(e => console.log(e.message));
+};
+
+
 
 const soumettreEtatCheckbox = (id, state) => {
 

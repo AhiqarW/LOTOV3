@@ -3,6 +3,7 @@ using FichesLoto.Shared.Domain;
 using LOTOV3.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using SchemaBD;
 using System.Diagnostics;
 
 namespace LOTOV3.Controllers
@@ -59,5 +60,28 @@ namespace LOTOV3.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        [HttpPost]
+        public async Task<IActionResult> UpdateComment([FromBody] CommentModel data)
+        {
+            string comment = data.Comment;
+            Console.WriteLine($"Commentaire recu du client: {comment}");
+
+            using (var context = new SchemaContext())
+            {
+                var description = context.DescriptionGenerales.FirstOrDefault(); 
+                if (description != null)
+                {
+                    description.UsagerDescriptionGeneraleRemarques = comment;
+                    await context.SaveChangesAsync();
+                    Console.WriteLine("Commentaire actualisé dans la BD.");
+                }
+            }
+
+            return Ok();
+        }
+
+
     }
+
+
 }
